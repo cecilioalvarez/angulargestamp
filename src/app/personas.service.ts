@@ -22,14 +22,14 @@ export class PersonasService {
   }
 
 
-  insertar(persona:Persona):void {
+  insertar(persona:Persona):Promise<Persona> {
 
-    this.lista.push(persona);
+   return this.httpClient.post<Persona>("http://localhost:3000/personas",persona).toPromise();
   }
 
-  borrar(persona:Persona) {
+  borrar(persona:Persona):Promise<Persona> {
 
-    let i=this.lista.indexOf(persona);
-    this.lista.splice(i,1);
+   return this.httpClient.
+   delete<Persona>(`http://localhost:3000/personas/${persona.nombre}`).toPromise();
   }
 }

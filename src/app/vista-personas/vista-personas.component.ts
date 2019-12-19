@@ -33,11 +33,28 @@ ngOnInit() {
   })
 }
 insertar() {
-  this.miservicio.insertar(this.personaNueva);
-  this.personaNueva = {} as Persona;
+  this.miservicio.insertar(this.personaNueva).then((e)=>{
+
+    return this.miservicio.buscarTodas();
+    
+  }).then((lista)=>{
+
+    this.lista=lista;
+    this.personaNueva = {} as Persona;
+
+  });
+ 
 }
 borrar(persona) {
-  this.miservicio.borrar(persona);
+  this.miservicio.borrar(persona).then((e)=>{
+
+    return this.miservicio.buscarTodas();
+    
+  }).then((lista)=>{
+
+    this.lista=lista;
+   
+  });
 }
 
 
