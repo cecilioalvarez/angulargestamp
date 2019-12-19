@@ -1,0 +1,8 @@
+<p *ngFor="let persona of listaPersonas" (mouseenter)="selecciona(persona)">
+    {{persona.nombre}}{{persona.apellidos}}{{persona.edad}}
+    <input type="checkbox" name="informatico" [(ngModel)]="persona.informatico"/>
+  
+</p>
+<p>seleccionada:</p>
+<p>Nombre:{{seleccionada.nombre}}</p>
+<p>Informatico:{{seleccionada.informatico}}</p>
